@@ -74,11 +74,11 @@ dependencies {
     //api library.utils
     api library.network
     api library.register_annotation
-    //kapt library.register_compiler
+    kapt library.register_compiler
     api library.lifecycle
     api library.widget
-    //api library.router_api
-    kapt library.router_compiler
+    api library.router_api
+    //kapt library.router_compiler
     api library.process_monitor
     api library.live_event_bus
     api library.xpopup
