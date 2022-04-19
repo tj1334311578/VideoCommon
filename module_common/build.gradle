@@ -1,0 +1,100 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+}
+
+def config = rootProject.ext.android
+def library = rootProject.ext.dependencies
+
+android {
+    compileSdk config.compileSdk
+
+    defaultConfig {
+        minSdk config.minSdk
+        targetSdk config.targetSdk
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility config.sourceCompatibility
+        targetCompatibility config.targetCompatibility
+    }
+
+    kotlinOptions {
+        jvmTarget = config.jvmTarget
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    //配置输出文件的名称
+    libraryVariants.all{ variant->
+        variant.outputs.all{
+            def filename = ""
+            if(buildType.name == 'release') {
+                filename = "common_1.0.0.aar"
+            } else {
+                filename = "common_${buildType.name}_1.0.0.aar"
+            }
+            outputFileName = filename
+        }
+    }
+}
+
+dependencies {
+
+    api library.core_ktx
+    api library.appcompat
+    api library.material
+    api library.constraint_layout
+
+    api library.activity_ktx
+    api library.fragment_ktx
+    api library.lifecycle_viewmodel_ktx
+    api library.lifecycle_livedata_ktx
+    api library.lifecycle_runtime_ktx
+
+    api library.recycler_view_adapter
+    //api library.utils
+    api library.network
+    api library.register_annotation
+    //kapt library.register_compiler
+    api library.lifecycle
+    api library.widget
+    //api library.router_api
+    kapt library.router_compiler
+    api library.process_monitor
+    api library.live_event_bus
+    api library.xpopup
+    api library.moshi
+    api library.moshi_compiler
+
+    implementation(library.image_coil) {
+        exclude group: 'com.squareup.okhttp3', module: 'okhttp'
+    }
+
+    //Toast框架
+    implementation library.toast_utils
+
+    api library.permissions
+
+    testImplementation library.java_junit
+    androidTestImplementation library.android_junit
+    androidTestImplementation library.espresso_core
+}

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.at.common">
+
+    <uses-sdk tools:overrideLibrary="com.lxj.xpopup"/>
+
+    <!--限制应用支持那些屏幕，比如手机、平板电脑或电视-->
+    <supports-screens
+        android:anyDensity="true"
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:resizeable="true"
+        android:xlargeScreens="true"/>
+
+    <application
+        android:allowBackup="true"
+        android:supportsRtl="true"
+        android:minAspectRatio="1.0"
+        android:maxAspectRatio="2.4"
+        android:resizeableActivity="true"
+        android:networkSecurityConfig="@xml/network_config"
+        tools:targetApi="q">
+
+        <!--android7.0之后访问文件-->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_files"/>
+
+        </provider>
+
+        <!--Android9.0之前刘海屏适配开始-->
+        <!--华为刘海屏适配-->
+        <meta-data
+            android:name="android.notch_support"
+            android:value="true"/>
+
+        <!--小米刘海屏适配 添加了先这行，小米应用内刘海设置会显示始终显示刘海否则显示自动匹配-->
+        <meta-data
+            android:name="notch.config"
+            android:value="portrait|landscape"/>
+
+        <!--oppo vivo刘海屏适配 但是也是Android 7.0之后适配全面屏-->
+
+        <!--Android9.0刘海屏适配开始-->
+
+        <!--在style中配置android:windowLayoutInDisplayCutoutMode有几个可选值-->
+        <!--Android9.0 default 只有状态栏可见时才可使用-->
+        <!--Android9.0 shortEdges 刘海区域可以绘制-->
+        <!--Android9.0 never 不使用刘海区域-->
+        <!--Android10.0 always 总是使用刘海区域-->
+
+        <!--Android9.0刘海屏适配结束-->
+
+        <!--Android9.0之前刘海屏适配结束-->
+
+        <!--Android全面屏适配开始-->
+        <!--Android https://developer.android.google.cn/guide/practices/screens-distribution.html-->
+        <!--华为 https://developer.huawei.com/consumer/cn/doc/90101-->
+        <!--方式一、针对7.0以上 直接在application中设置android:resizeableActivity="true"，Android7.0之后默
+        认为true，设置在application节点中，是针对所有activity，也可以在Activity设置 针对当前Activity,注意该配置
+        如果设置为true代表可以是分屏，所以要自行考虑-->
+
+        <!--方式二、在application节点中配置最大屏幕比例 <meta-data android:name="android.max_aspect"
+        android:value="2.4" />对所有activity生效 也可以配置在activity中，但是只对当前activity生效
+        虽然方式一能够适配全面屏，但是如果没有添加先这句，有些手机上，应用全屏显示没有打开-->
+
+        <meta-data android:name="android.max_aspect" android:value="2.4"/>
+
+        <!--方式三、针对8.0以上 application中设置android:maxAspectRatio="2.4"屏幕最大比例，对所有activity生
+        效 也可以配置在activity中，但是只对当前activity生效 在10.0以上可以配置屏幕最小比例，配置在application中
+        android:minAspectRatio="1"对所有activity生效 也可以配置在activity中，但是只对当前activity生效-->
+
+        <!--注意事项，如果设置android:resizeableActivity="true"配置，会忽略方式二和方式三-->
+
+        <!--Android全面屏适配结束-->
+
+        <!--折叠屏适配开始-->
+
+        <!--华为Android9.0折叠屏适配开始-->
+
+        <!--方式一、针对7.0以上 直接在application中设置android:resizeableActivity="true"，Android7.0之后默
+        认为true，设置在application节点中，是针对所有activity，也可以在Activity设置 针对当前Activity,注意该配置
+        如果设置为true代表可以是分屏，所以要自行考虑-->
+
+        <!--方式二、在application节点中配置最小屏幕比例 <meta-data android:name="android.min_aspect"
+        android:value="1.0" />对所有activity生效 也可以配置在activity中，但是只对当前activity生效-->
+        <meta-data android:name="android.min_aspect" android:value="1.0" />
+
+        <!--华为Android9.0折叠屏适配结束-->
+
+        <!--三星Android9.0折叠屏适配开始-->
+
+        <!--方式一、针对7.0以上 直接在application中设置android:resizeableActivity="true"，Android7.0之后默
+        认为true，设置在application节点中，是针对所有activity，也可以在Activity设置 针对当前Activity,注意该配置
+        如果设置为true代表可以是分屏，所以要自行考虑-->
+
+        <!--方式二、在application节点中配置最小屏幕比例 <meta-data
+        android:name="android.supports_size_changes" android:value="true" />对所有activity生效 也可以配
+        置在activity中，但是只对当前activity生效-->
+        <meta-data android:name="android.supports_size_changes" android:value="true" />
+
+        <!--三星Android9.0折叠屏适配结束-->
+
+        <!--Android10以上折叠屏适配，只能直接在application中设置android:resizeableActivity="true"或者
+        activity中设置,发现使用android:minAspectRatio="1"并没有什么效果, 但是会多一个按钮来重启activity，
+        已到达适配-->
+
+        <!--折叠屏适配结束-->
+
+        <!--APP 支持 Multi-Resume（Android P 开始支持），在Manifest 文件的<application>节点中增加
+        <meta-data> 数据， 在设置了该元数据后，应用在分屏模式下失去焦点后不会收到 onPause() 回调，如果需要知道用
+        户“焦点”是否还在应用上，使用 onWindowFocusChanged() 回调判断。-->
+        <meta-data android:name="android.allow_multiple_resumed_activities" android:value="true"/>
+
+    </application>
+
+</manifest>

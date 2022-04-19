@@ -1,0 +1,62 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+def config = rootProject.ext.android
+def library = rootProject.ext.dependencies
+
+android {
+    compileSdk config.compileSdk
+
+    defaultConfig {
+        applicationId "com.at.videoplayer"
+        minSdk config.minSdk
+        targetSdk config.targetSdk
+        versionCode config.versionCode
+        versionName config.versionName
+        //只针对当前module
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility config.sourceCompatibility
+        targetCompatibility config.targetCompatibility
+    }
+
+    kotlinOptions {
+        jvmTarget = config.jvmTarget
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation project(path: ':module_common')
+
+    //hilt
+    implementation library.hilt_android
+    kapt library.hilt_compiler
+
+    testImplementation library.java_junit
+    androidTestImplementation library.android_junit
+    androidTestImplementation library.espresso_core
+}

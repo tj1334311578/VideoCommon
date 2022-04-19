@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--http 错误-->
+    <string name="common_network_connection_error">系统错误</string>
+    <string name="common_unknown_host_error">加载失败</string>
+    <string name="common_socket_error">系统错误</string>
+    <string name="common_socket_timeout_error">连接超时</string>
+    <string name="common_json_error">系统错误</string>
+    <string name="common_http_error">系统错误</string>
+    <string name="common_http_io_error">系统错误</string>
+    <string name="common_unknown_error">系统错误</string>
+</resources>

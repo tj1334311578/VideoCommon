@@ -1,0 +1,70 @@
+plugins {
+    id 'com.android.application'
+    //id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+def config = rootProject.ext.android
+def library = rootProject.ext.dependencies
+
+android {
+    compileSdk config.compileSdk
+
+    defaultConfig {
+        applicationId "com.at.player"
+        minSdk config.minSdk
+        targetSdk config.targetSdk
+
+        versionCode 107
+        versionName "7.7.0"
+
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility config.sourceCompatibility
+        targetCompatibility config.targetCompatibility
+    }
+
+    kotlinOptions {
+        jvmTarget = config.jvmTarget
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    //配置输出文件的名称
+    /*libraryVariants.all{ variant->
+        variant.outputs.all{
+            def filename = ""
+            if(buildType.name == 'release') {
+                filename = "common_1.0.0.aar"
+            } else {
+                filename = "common_${buildType.name}_1.0.0.aar"
+            }
+            outputFileName = filename
+        }
+    }*/
+}
+
+dependencies {
+    implementation 'cn.jzvd:jiaozivideoplayer:7.7.0'
+    testImplementation library.java_junit
+    androidTestImplementation library.android_junit
+    androidTestImplementation library.espresso_core
+}

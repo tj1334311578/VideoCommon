@@ -1,0 +1,123 @@
+ext{
+
+    android = [
+            compileSdk: 32,
+            minSdk: 16,
+            targetSdk: 32,
+            versionCode: 1,
+            versionName: '1.0.0',
+            // app签名文件路径
+            storeFile: "../joke.jks",
+            //签名文件密码
+            storePassword: "sdfsdf",
+            // 签名文件别名
+            keyAlias: "rui",
+            // 签名文件别名密码
+            keyPassword: "sdfsd",
+            //java使用jdk版本
+            targetCompatibility: JavaVersion.VERSION_11,
+            sourceCompatibility: JavaVersion.VERSION_11,
+            //kotlin使用版本
+            jvmTarget: JavaVersion.VERSION_11
+    ]
+    //是否是集成模式
+    isModule = true
+    //gradle插件版本
+    gradle_plugin_version = "7.1.2"
+    //仓库用户名
+    warehouse_userName = "sdf"
+    //仓库密码
+    warehouse_password = "sdfsd"
+    //插件仓库
+    gradle_proxy = "dfdsf"
+    //依赖仓库
+    warehouse_proxy = "sdfsdfsdf"
+    //kotlin版本
+    kotlin_version="1.6.20"
+
+    dependencies=[
+            // gradle插件
+            gradle_plugin: "com.android.tools.build:gradle:7.0.4",
+            // kotlin插件
+            kotlin_plugin: "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version",
+            //路由插件
+            router_plugin: "com.melancholy.router.plugin:plugin:1.0.0",
+            // kotlin Sdk
+            kotlin_stblib: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version",
+            // Kotlin
+            core_ktx: "androidx.core:core-ktx:1.7.0",
+            //替换com.android.support:appcompat-v7
+            appcompat: "androidx.appcompat:appcompat:1.4.1",
+            //替换com.android.support:design
+            material: "com.google.android.material:material:1.5.0",
+            //constraint
+            constraint_layout: "androidx.constraintlayout:constraintlayout:2.1.3",
+
+            //播放器
+            //https://github.com/Jzvd/JZVideo
+
+            //工具类
+            utils: "com.melancholy.utils:utils:1.0.6",
+            //通用控件
+            widget: "com.melancholy.widget:widget:1.1.9",
+            //基础类库
+            basics: "com.melancholy.basics:basics:1.1.2",
+            //网络库
+            network: "com.melancholy.network:network:3.0.1",
+            //路由
+            router_api: "com.melancholy.router.api:api:1.0.0",
+            //路由注解处理器
+            router_compiler: "com.melancholy.router.compiler:compiler:1.0.1",
+            //图片加载
+            image_loader: "com.melancholy.imageloader:imageloader:1.0.0",
+            //application生命周期监听
+            lifecycle: "com.melancholy.application.lifecycle:lifecycle:2.0.0",
+            //注册
+            register_annotation: "com.melancholy.register.annotation:annotation:1.0.0",
+            register_compiler: "com.melancholy.register.compiler:compiler:1.0.0",
+            //前后台进程监听
+            process_monitor: "com.melancholy.process.monitor:monitor:1.0.0",
+            //图片加载框架
+            image_coil: "io.coil-kt:coil:1.4.0",
+
+            //hilt
+            hilt_android: "com.google.dagger:hilt-android:2.38.1",
+            hilt_compiler: "com.google.dagger:hilt-compiler:2.38.1",
+
+            //viewModel相关的扩展方法 viewModelScope
+            lifecycle_viewmodel_ktx: "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1",
+            //livedata相关的扩展方法，例如map，distinctUntilChanged 还引入了kotlin协程flow
+            lifecycle_livedata_ktx: "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1",
+            //lifecycle相关的扩展方法，例如repeatOnLifecycle whenCreated
+            lifecycle_runtime_ktx: "androidx.lifecycle:lifecycle-runtime-ktx:2.4.1",
+
+            //activity中的扩展方法，例如registerForActivityResult，viewModels
+            activity_ktx: "androidx.activity:activity-ktx:1.4.0",
+            //fragment中的扩展方法，例如viewModels
+            fragment_ktx: "androidx.fragment:fragment-ktx:1.4.1",
+
+            //RecyclerView适配器
+            recycler_view_adapter: "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.7",
+
+            //Toast框架
+            toast_utils: "com.github.getActivity:ToastUtils:10.3",
+            //权限请求框架
+            permissions: "com.github.getActivity:XXPermissions:13.5",
+            //LiveDataBus
+            live_event_bus: "io.github.jeremyliao:live-event-bus-x:1.8.0",
+            //弹窗工具
+            xpopup: "com.github.li-xiaojun:XPopup:2.7.6",
+            //json解析
+            moshi: "com.squareup.moshi:moshi:1.13.0",
+            //生成jsonadapter 插件
+            moshi_compiler: "com.squareup.moshi:moshi-kotlin-codegen:1.13.0",
+
+            retrofit: "com.squareup.retrofit2:retrofit:2.6.4",
+
+            //java测试包
+            java_junit: "junit:junit:4.13.2",
+            //android测试包
+            android_junit: "androidx.test.ext:junit:1.1.3",
+            espresso_core: "androidx.test.espresso:espresso-core:3.4.0",
+    ]
+}
