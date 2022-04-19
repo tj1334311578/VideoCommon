@@ -1,7 +1,6 @@
-package com.at.videoplayer
+package com.at.common.demo
 
 import android.app.Application
-import androidx.lifecycle.ViewModel
 import com.at.common.mvi.BaseAndroidViewModel
 import com.at.common.mvi.IUiEffect
 import com.at.common.mvi.IUiEvent

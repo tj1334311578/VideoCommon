@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.at.videoplayer">
+    package="com.at.common.demo">
 
     <application
-        android:name=".MyApp"
+        android:name="com.at.common.demo.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.VideoPlayer">
+        android:theme="@style/Theme.CommonDemo">
         <activity
-            android:name=".MainActivity"
+            android:name="com.at.common.demo.MainActivity"
             android:exported="true"
             android:configChanges="fontScale|orientation|keyboard|keyboardHidden|screenSize|smallestScreenSize|screenLayout|density">
             <intent-filter>

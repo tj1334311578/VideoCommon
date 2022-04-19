@@ -42,6 +42,8 @@ ext{
             kotlin_plugin: "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version",
             //路由插件
             router_plugin: "com.melancholy.router.plugin:plugin:1.0.0",
+            //hilt插件
+            hilt_plugin: "com.google.dagger:hilt-android-gradle-plugin:2.38.1",
             // kotlin Sdk
             kotlin_stblib: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version",
             // Kotlin

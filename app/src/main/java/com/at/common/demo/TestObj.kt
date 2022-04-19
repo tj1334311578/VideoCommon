@@ -1,4 +1,4 @@
-package com.at.videoplayer
+package com.at.common.demo
 
 import android.util.Log
 import javax.inject.Inject

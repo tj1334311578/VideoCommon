@@ -1,4 +1,4 @@
-package com.at.videoplayer
+package com.at.common.demo
 
 import org.junit.Test
 
