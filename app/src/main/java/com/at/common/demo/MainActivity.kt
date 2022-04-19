@@ -1,12 +1,9 @@
-package com.at.videoplayer
+package com.at.common.demo
 
 import android.os.Bundle
-import androidx.activity.viewModels
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.at.common.binding.BaseBindingActivity
 import com.at.common.mvi.BaseMviActivity
-import com.at.videoplayer.databinding.ActivityMainBinding
+import com.at.common.demo.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
