@@ -70,6 +70,7 @@ dependencies {
     api library.lifecycle_livedata_ktx
     api library.lifecycle_runtime_ktx
 
+
     api library.recycler_view_adapter
     //api library.utils
     api library.network
