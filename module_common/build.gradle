@@ -44,7 +44,7 @@ android {
     }
 
     //配置输出文件的名称
-    libraryVariants.all{ variant->
+    /*libraryVariants.all{ variant->
         variant.outputs.all{
             def filename = ""
             if(buildType.name == 'release') {
@@ -54,7 +54,7 @@ android {
             }
             outputFileName = filename
         }
-    }
+    }*/
 }
 
 dependencies {
