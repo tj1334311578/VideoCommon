@@ -79,7 +79,6 @@ dependencies {
     api library.lifecycle
     api library.widget
     api library.router_api
-    //kapt library.router_compiler
     api library.process_monitor
     api library.live_event_bus
     api library.xpopup
@@ -99,3 +98,31 @@ dependencies {
     androidTestImplementation library.android_junit
     androidTestImplementation library.espresso_core
 }
+
+//上传本地仓库
+/*
+uploadArchives {
+    apply plugin: 'maven'
+    // repositories.mavenDeployer {} 等价于 repository {mavenDeployer {}}
+    repositories.mavenDeployer {
+        //本地磁盘仓库路径，以放到项目根目录下的 repo 的文件夹为例
+        //repository(url: uri('../repo'))
+        //上传远程仓库地址
+        repository(url: warehouse) {
+            //仓库地址的账号和密码
+            authentication(userName: warehouse_userName, password: warehouse_password)
+        }
+        //
+        //snapshotRepository(url: "http://xxx/nexus/content/repositories/snapshots") {
+        //仓库地址的账号和密码
+        //authentication(userName: "nexus", password: "xxx")
+        //}
+
+        //groupId
+        pom.groupId = pom_groupId
+        //artifactId
+        pom.artifactId = pom_artifactId
+        //版本号
+        pom.version = pom_version
+    }
+}*/
