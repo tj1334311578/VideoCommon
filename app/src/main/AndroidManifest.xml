@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.at.common.demo">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name="com.at.common.demo.MyApp"
         android:allowBackup="true"

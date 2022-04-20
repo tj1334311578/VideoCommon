@@ -12,8 +12,6 @@ pluginManagement {
             }
         }
         gradlePluginPortal()
-        //google()
-        //mavenCentral()
     }
 }
 dependencyResolutionManagement {
@@ -30,10 +28,6 @@ dependencyResolutionManagement {
                 password "Admin123456@"
             }
         }
-        //google()
-        //mavenCentral()
-        //maven {url 'https://jitpack.io'}
-        //jcenter()
     }
 }
 rootProject.name = "VideoCommon"

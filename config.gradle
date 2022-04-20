@@ -24,19 +24,16 @@ ext{
     isModule = true
     //gradle插件版本
     gradle_plugin_version = "7.1.2"
-    //仓库用户名
-    warehouse_userName = "sdf"
-    //仓库密码
-    warehouse_password = "sdfsd"
-    //插件仓库
-    gradle_proxy = "dfdsf"
-    //依赖仓库
-    warehouse_proxy = "sdfsdfsdf"
     //kotlin版本
     kotlin_version="1.6.20"
 
     //仓库
     warehouse = "http://140.82.23.227:8082/artifactory/android-library/"
+
+    //仓库用户名
+    warehouse_library_userName = "admin"
+    //仓库密码
+    warehouse_library_password = "Admin123456@"
 
     //groupId
     pom_groupId = "com.at.common"
@@ -69,7 +66,7 @@ ext{
             //https://github.com/Jzvd/JZVideo
 
             //工具类
-            utils: "com.melancholy.utils:utils:1.0.6",
+            utils: "com.melancholy.utils:utils:1.0.7",
             //通用控件
             widget: "com.melancholy.widget:widget:1.1.9",
             //基础类库
@@ -91,6 +88,8 @@ ext{
             process_monitor: "com.melancholy.process.monitor:monitor:1.0.0",
             //图片加载框架
             image_coil: "io.coil-kt:coil:1.4.0",
+            //代替 SharedPreferences
+            mmkv: "com.tencent:mmkv:1.2.13",
 
             //hilt
             hilt_android: "com.google.dagger:hilt-android:2.38.1",

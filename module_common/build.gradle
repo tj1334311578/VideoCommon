@@ -2,6 +2,7 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'maven-publish'
 }
 
 def config = rootProject.ext.android
@@ -72,7 +73,7 @@ dependencies {
 
 
     api library.recycler_view_adapter
-    //api library.utils
+    api library.utils
     api library.network
     api library.register_annotation
     kapt library.register_compiler
@@ -92,6 +93,8 @@ dependencies {
     //Toast框架
     implementation library.toast_utils
 
+    implementation library.mmkv
+
     api library.permissions
 
     testImplementation library.java_junit
@@ -99,30 +102,35 @@ dependencies {
     androidTestImplementation library.espresso_core
 }
 
-//上传本地仓库
-/*
-uploadArchives {
-    apply plugin: 'maven'
-    // repositories.mavenDeployer {} 等价于 repository {mavenDeployer {}}
-    repositories.mavenDeployer {
-        //本地磁盘仓库路径，以放到项目根目录下的 repo 的文件夹为例
-        //repository(url: uri('../repo'))
-        //上传远程仓库地址
-        repository(url: warehouse) {
-            //仓库地址的账号和密码
-            authentication(userName: warehouse_userName, password: warehouse_password)
+/**
+ * 上传到私有仓库
+ */
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                //如果是war包填写components.web，如果是jar包填写components.java
+                from components.release
+                //指定group/artifact/version信息，可以不填。默认使用项目group/name/version作为groupId/artifactId/version
+                groupId pom_groupId
+                artifactId pom_artifactId
+                version pom_version
+                // aar文件所在的位置
+                // module打包后所在路径为module模块下的build/outputs/aar，生成的aar名称为：module名-release.aar
+                //artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
+            }
         }
-        //
-        //snapshotRepository(url: "http://xxx/nexus/content/repositories/snapshots") {
-        //仓库地址的账号和密码
-        //authentication(userName: "nexus", password: "xxx")
-        //}
-
-        //groupId
-        pom.groupId = pom_groupId
-        //artifactId
-        pom.artifactId = pom_artifactId
-        //版本号
-        pom.version = pom_version
+        repositories {
+            maven {
+                allowInsecureProtocol = true
+                //指定要上传的maven私服仓库
+                url = warehouse
+                //认证用户和密码
+                credentials {
+                    username warehouse_library_userName
+                    password warehouse_library_password
+                }
+            }
+        }
     }
-}*/
+}

@@ -12,7 +12,7 @@ android {
     compileSdk config.compileSdk
 
     defaultConfig {
-        applicationId "com.at.videoplayer"
+        applicationId "com.at.common.demo"
         minSdk config.minSdk
         targetSdk config.targetSdk
         versionCode config.versionCode

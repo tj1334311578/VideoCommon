@@ -14,6 +14,7 @@ abstract class BaseBindingActivity<VIEW: ViewBinding>(): BaseActivity() {
 
     final override fun createView() {
         mBinding = createViewBinding()
+        setContentView(mBinding!!.root)
     }
 
     protected abstract fun createViewBinding(): VIEW

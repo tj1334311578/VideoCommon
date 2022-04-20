@@ -8,7 +8,7 @@ import com.melancholy.application.lifecycle.ApplicationLifecycle
  * @Create_time: 2022/4/12 11:05
  * @Description: baseApplication
  */
-class BaseApplication: Application() {
+open class BaseApplication: Application() {
 
     override fun onCreate() {
         super.onCreate()
