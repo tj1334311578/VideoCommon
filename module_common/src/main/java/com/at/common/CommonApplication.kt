@@ -10,6 +10,7 @@ import com.melancholy.network.ApiFactory
 import com.melancholy.network.Config
 import com.melancholy.process.monitor.ProcessMonitor
 import com.melancholy.register.annotation.RegisterService
+import com.melancholy.router.api.launcher.Router
 
 /**
  * @Create_time: 2022/4/19 13:36
@@ -24,11 +25,11 @@ class CommonApplication: IApplicationLifecycle {
         //初始化Toast框架
         ToastUtils.init(application)
         //初始化路由框架
-       /* if(Constants.IS_DEBUG) {
+        if(Constants.IS_DEBUG) {
             Router.openDebug()
             Router.openLog()
         }
-        Router.init(application)*/
+        Router.init(application)
         val config = Config(Constants.BASE_URL, true, capacity = 32,
             listOf(MoshiConverterFactory.create()),
             listOf(BaseBeanCallAdapterFactory()))
