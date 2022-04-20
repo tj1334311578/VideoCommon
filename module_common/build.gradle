@@ -95,7 +95,9 @@ dependencies {
 
     implementation library.mmkv
 
-    api library.permissions
+    api (library.permissions) {
+        exclude group: 'com.android.support', module: 'support-fragment'
+    }
 
     testImplementation library.java_junit
     androidTestImplementation library.android_junit
