@@ -35,6 +35,16 @@ ext{
     //kotlin版本
     kotlin_version="1.6.20"
 
+    //仓库
+    warehouse = "http://140.82.23.227:8082/artifactory/android-library/"
+
+    //groupId
+    pom_groupId = "com.at.common"
+    //artifactId
+    pom_artifactId = "common"
+    //版本号
+    pom_version = "1.0.0"
+
     dependencies=[
             // gradle插件
             gradle_plugin: "com.android.tools.build:gradle:7.0.4",
