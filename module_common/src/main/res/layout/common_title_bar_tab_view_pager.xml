@@ -13,8 +13,9 @@
         android:id="@+id/included_tab_layout"
         layout="@layout/common_tab_layout"/>
 
-    <include
-        android:id="@+id/included_status_refresh_list"
-        layout="@layout/common_status_refresh_list"/>
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
