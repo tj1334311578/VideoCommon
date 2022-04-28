@@ -5,8 +5,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/common_title_bar"/>
+    <include
+        android:id="@+id/included_title_bar"
+        layout="@layout/common_title_bar"/>
 
-    <include layout="@layout/common_status_refresh_list"/>
+    <include
+        android:id="@+id/included_status_refresh_list"
+        layout="@layout/common_status_refresh_list"/>
 
 </LinearLayout>

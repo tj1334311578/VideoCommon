@@ -40,7 +40,7 @@ ext{
     //artifactId
     pom_artifactId = "common"
     //版本号
-    pom_version = "1.0.1"
+    pom_version = "1.0.3"
 
     dependencies=[
             // gradle插件
