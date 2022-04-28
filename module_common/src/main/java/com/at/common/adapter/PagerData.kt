@@ -9,6 +9,6 @@ import android.os.Bundle
 
 data class PagerData (
     val path: String,
-    val itemId: Long,
+    val itemId: Long = path.hashCode().toLong(),
     val args: Bundle? = null
 )
