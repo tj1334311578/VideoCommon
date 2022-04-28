@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.at.common">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!--解决该库不支持Android4.4以下的编译问题-->
     <uses-sdk tools:overrideLibrary="com.lxj.xpopup"/>
 
     <!--限制应用支持那些屏幕，比如手机、平板电脑或电视-->

@@ -3,9 +3,9 @@ pluginManagement {
         maven {
             allowInsecureProtocol = true
             //内网私有代理仓库
-            url "http://192.168.2.204:8082/artifactory/android-local_repository/"
+            //url "http://192.168.2.204:8082/artifactory/android-local_repository/"
             //国外私有代理仓库
-            //url "http://140.82.23.227:8082/artifactory/android-warehouse/"
+            url "http://140.82.23.227:8082/artifactory/android-warehouse/"
             credentials {
                 username "admin"
                 password "Admin123456@"
@@ -20,9 +20,9 @@ dependencyResolutionManagement {
         maven {
             allowInsecureProtocol = true
             //内网私有代理仓库
-            url "http://192.168.2.204:8082/artifactory/android-local_repository/"
+            //url "http://192.168.2.204:8082/artifactory/android-local_repository/"
             //国外私有代理仓库
-            //url "http://140.82.23.227:8082/artifactory/android-warehouse/"
+            url "http://140.82.23.227:8082/artifactory/android-warehouse/"
             credentials {
                 username "admin"
                 password "Admin123456@"
