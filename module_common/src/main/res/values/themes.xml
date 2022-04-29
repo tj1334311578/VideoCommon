@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--通用主题-->
+    <style name="CommonTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!--去掉android中button阴影部分-->
+        <item name="buttonStyle">@style/Widget.AppCompat.Button.Borderless</item>
+        <!--禁止按钮上的文本自动大写-->
+        <item name="android:textAllCaps">false</item>
+        <!--状态栏和导航栏设置不使用-->
+        <item name="android:windowTranslucentStatus" tools:ignore="NewApi">true</item>
+        <item name="android:windowTranslucentNavigation" tools:ignore="NewApi">true</item>
+        <!--使用刘海-->
+        <item name="android:windowLayoutInDisplayCutoutMode" tools:ignore="NewApi">shortEdges</item>
+        <!--Android-->
+        <item name="android:enforceStatusBarContrast" tools:ignore="NewApi">false</item>
+        <item name="android:enforceNavigationBarContrast" tools:ignore="NewApi">false</item>
+        <!--修改MaterialButton的风格-->
+        <item name="materialButtonStyle">@style/materialButton</item>
+        <!--修改MaterialCardView的风格-->
+        <item name="materialCardViewStyle">@style/materialCardView</item>
+        <!--修改CardView的风格-->
+        <item name="cardViewStyle">@style/cardView</item>
+        <!--设置TextView上下方的留白问题-->
+        <item name="android:includeFontPadding">false</item>
+        <!---->
+        <item name="useMaterialThemeColors">false</item>
+        <!--设置checkBox-->
+        <item name="checkboxStyle">@style/checkboxStyle</item>
+        <!--设置radioButton-->
+        <item name="radioButtonStyle">@style/radioButtonStyle</item>
+        <!--设置switch-->
+        <item name="switchStyle">@style/switchStyle</item>
+    </style>
+
+    <!--https://www.jianshu.com/p/bc71b4179cb2-->
+    <!--MaterialButton-->
+    <style name="materialButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="android:paddingLeft">@dimen/dp_0</item>
+        <item name="android:paddingTop">@dimen/dp_0</item>
+        <item name="android:paddingRight">@dimen/dp_0</item>
+        <item name="android:paddingBottom">@dimen/dp_0</item>
+        <item name="android:inset" tools:ignore="NewApi">@dimen/dp_0</item>
+        <item name="android:insetLeft">@dimen/dp_0</item>
+        <item name="android:insetTop">@dimen/dp_0</item>
+        <item name="android:insetRight">@dimen/dp_0</item>
+        <item name="android:insetBottom">@dimen/dp_0</item>
+        <item name="android:minWidth">@dimen/dp_0</item>
+        <item name="android:minHeight">@dimen/dp_0</item>
+        <item name="android:elevation" tools:ignore="NewApi">@dimen/dp_0</item>
+        <item name="rippleColor">@android:color/transparent</item>
+        <item name="cornerRadius">@dimen/dp_0</item>
+        <item name="iconPadding">@dimen/dp_0</item>
+        <item name="strokeWidth">@dimen/dp_0</item>
+    </style>
+
+    <!--MaterialCardView-->
+    <style name="materialCardView" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">@dimen/dp_0</item>
+        <item name="cardCornerRadius">@dimen/dp_0</item>
+        <item name="android:elevation" tools:ignore="NewApi">@dimen/dp_0</item>
+        <item name="rippleColor">@android:color/transparent</item>
+    </style>
+
+    <!--CardView-->
+    <style name="cardView" parent="Base.CardView">
+        <item name="cardElevation">@dimen/dp_0</item>
+        <item name="cardCornerRadius">@dimen/dp_0</item>
+    </style>
+
+    <!--checkbox-->
+    <style name="checkboxStyle" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <!--<item name="android:button">@drawable/common_check_box_selector</item>
+        <item name="buttonCompat">@drawable/common_check_box_selector</item>-->
+        <item name="android:background">@null</item>
+    </style>
+
+    <!--radiobutton-->
+    <style name="radioButtonStyle" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:width">@dimen/dp_40</item>
+        <item name="android:height">@dimen/dp_m_20</item>
+        <!--        <item name="android:button">@drawable/switch_selector</item>
+                <item name="buttonCompat">@drawable/switch_selector</item>-->
+        <item name="android:background">@null</item>
+    </style>
+
+    <!--Switch_Style-->
+    <style name="switchStyle" parent="Widget.AppCompat.CompoundButton.Switch">
+        <!--track是switch轨迹部分,这里我们用了一个selector来解决不同状态下轨迹的颜色-->
+        <!--<item name="android:track">@drawable/switch_selector</item>-->
+        <!--thumb是switch滑块,这里我们用了Widget.AppCompat.CompoundButton.Switch下带的资源,如果有需要,请自行更换图标-->
+        <item name="android:thumb">@drawable/abc_switch_thumb_material</item>
+        <item name="android:background">@null</item>
+        <!--switch上的文字,插入占位符,解决部分手机不能显示问题-->
+        <item name="android:textOn"> </item>
+        <item name="android:textOff"> </item>
+        <!--这个东西才能控制整个开关的宽度, 有些人会发现设置width会无效,设置一下这个就好啦-->
+        <!--<item name="android:switchMinWidth">@dimen/dp_40</item>-->
+
+    </style>
+
+
+    <!--loading dialog-->
+    <style name="LoadingDialogStyle" parent="@style/Theme.MaterialComponents.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+    </style>
+
+</resources>
