@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--通用主题-->
+    <style name="CommonTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!--去掉android中button阴影部分-->
+        <item name="buttonStyle">@style/Widget.AppCompat.Button.Borderless</item>
+        <!--禁止按钮上的文本自动大写-->
+        <item name="android:textAllCaps">false</item>
+        <!--状态栏和导航栏设置不使用-->
+        <item name="android:windowTranslucentStatus" tools:ignore="NewApi">false</item>
+        <item name="android:windowTranslucentNavigation" tools:ignore="NewApi">false</item>
+        <!--使用刘海-->
+        <item name="android:windowLayoutInDisplayCutoutMode">always</item>
+        <!--Android-->
+        <item name="android:enforceStatusBarContrast" tools:ignore="NewApi">false</item>
+        <item name="android:enforceNavigationBarContrast" tools:ignore="NewApi">false</item>
+        <!--修改MaterialButton的风格-->
+        <item name="materialButtonStyle">@style/materialButton</item>
+        <!--修改MaterialCardView的风格-->
+        <item name="materialCardViewStyle">@style/materialCardView</item>
+        <!--修改CardView的风格-->
+        <item name="cardViewStyle">@style/cardView</item>
+        <!--设置TextView上下方的留白问题-->
+        <item name="android:includeFontPadding">false</item>
+        <!---->
+        <item name="useMaterialThemeColors">false</item>
+        <!--设置checkBox-->
+        <item name="checkboxStyle">@style/checkboxStyle</item>
+        <!--设置radioButton-->
+        <item name="radioButtonStyle">@style/radioButtonStyle</item>
+        <!--设置switch-->
+        <item name="switchStyle">@style/switchStyle</item>
+    </style>
+
+</resources>

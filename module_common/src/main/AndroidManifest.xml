@@ -58,7 +58,7 @@
         <!--Android9.0 default 只有状态栏可见时才可使用-->
         <!--Android9.0 shortEdges 刘海区域可以绘制-->
         <!--Android9.0 never 不使用刘海区域-->
-        <!--Android10.0 always 总是使用刘海区域-->
+        <!--Android11.0 always 总是使用刘海区域-->
 
         <!--Android9.0刘海屏适配结束-->
 

@@ -1,6 +1,7 @@
 package com.at.common.demo
 
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.at.common.ImageConfig
@@ -17,12 +18,14 @@ import kotlinx.coroutines.launch
 class MainActivity: BaseMviActivity<ActivityMainBinding, MainViewModel>() {
 
     override fun initialize(savedInstanceState: Bundle?) {
+        requireTitleBar().addBackButton()
         getViewModel().print()
         val viewModel = ViewModelProvider(this)[MainViewModel::class.java]
         viewModel.print()
     }
 
     override fun loadData() {
+        WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS
         requireBinding().ivImage.load(config = ImageConfig("https://img0.baidu.com/it/u=2862534777,914942650&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500",
         placeholderId = R.drawable.ic_launcher_foreground, errorId = R.drawable.ic_launcher_background))
         ToastUtils.show("开始加载数据")

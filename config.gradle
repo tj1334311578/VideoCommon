@@ -40,7 +40,7 @@ ext{
     //artifactId
     pom_artifactId = "common"
     //版本号
-    pom_version = "1.0.7"
+    pom_version = "1.1.0"
 
     dependencies=[
             // gradle插件
@@ -66,7 +66,7 @@ ext{
             //https://github.com/Jzvd/JZVideo
 
             //工具类
-            utils: "com.melancholy.utils:utils:1.0.7",
+            utils: "com.melancholy.utils:utils:1.0.8",
             //通用控件
             widget: "com.melancholy.widget:widget:1.1.9",
             //基础类库
@@ -74,7 +74,7 @@ ext{
             //网络库
             network: "com.melancholy.network:network:3.0.1",
             //路由
-            router_api: "com.melancholy.router.api:api:1.0.0",
+            router_api: "com.melancholy.router.api:api:1.0.1",
             //路由注解处理器
             router_compiler: "com.melancholy.router.compiler:compiler:1.0.1",
             //图片加载
