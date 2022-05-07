@@ -15,6 +15,10 @@
         <!--Android-->
         <item name="android:enforceStatusBarContrast" tools:ignore="NewApi">false</item>
         <item name="android:enforceNavigationBarContrast" tools:ignore="NewApi">false</item>
+        <!--设置状态栏颜色-->
+        <item name="android:statusBarColor" tools:ignore="NewApi">@android:color/transparent</item>
+        <!--设置导航栏颜色-->
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@android:color/white</item>
         <!--修改MaterialButton的风格-->
         <item name="materialButtonStyle">@style/materialButton</item>
         <!--修改MaterialCardView的风格-->
@@ -31,6 +35,8 @@
         <item name="radioButtonStyle">@style/radioButtonStyle</item>
         <!--设置switch-->
         <item name="switchStyle">@style/switchStyle</item>
+        <!--设置背景颜色-->
+        <item name="android:windowBackground">@color/color_FFF6F8FB</item>
     </style>
 
 </resources>

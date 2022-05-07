@@ -40,7 +40,7 @@ ext{
     //artifactId
     pom_artifactId = "common"
     //版本号
-    pom_version = "1.1.2"
+    pom_version = "1.1.5"
 
     dependencies=[
             // gradle插件
@@ -68,7 +68,7 @@ ext{
             //工具类
             utils: "com.melancholy.utils:utils:1.0.8",
             //通用控件
-            widget: "com.melancholy.widget:widget:1.1.9",
+            widget: "com.melancholy.widget:widget:1.2.0",
             //基础类库
             basics: "com.melancholy.basics:basics:1.1.2",
             //网络库

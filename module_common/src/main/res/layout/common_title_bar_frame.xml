@@ -5,7 +5,6 @@
     android:layout_height="match_parent">
 
     <include
-        android:id="@+id/included_title_bar"
         layout="@layout/common_refresh_list"/>
 
     <FrameLayout

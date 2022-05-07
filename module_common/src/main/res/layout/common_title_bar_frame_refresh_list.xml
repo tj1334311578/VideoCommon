@@ -9,7 +9,6 @@
         layout="@layout/common_status_refresh_list"/>
 
     <include
-        android:id="@+id/included_title_bar"
         layout="@layout/common_title_bar"/>
 
 </FrameLayout>
