@@ -42,7 +42,7 @@
     <!--https://www.jianshu.com/p/bc71b4179cb2-->
     <!--MaterialButton-->
     <style name="materialButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
-        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="backgroundTint">@null</item>
         <item name="android:paddingLeft">@dimen/dp_0</item>
         <item name="android:paddingTop">@dimen/dp_0</item>
         <item name="android:paddingRight">@dimen/dp_0</item>
@@ -107,8 +107,8 @@
     </style>
 
 
-    <!--loading dialog-->
-    <style name="LoadingDialogStyle" parent="@style/Theme.MaterialComponents.Dialog">
+    <!--dialog-->
+    <style name="CommonDialogStyle" parent="@style/Theme.MaterialComponents.Dialog">
         <item name="android:windowNoTitle">true</item>
         <item name="android:background">@android:color/transparent</item>
         <item name="android:windowBackground">@android:color/transparent</item>
@@ -118,6 +118,10 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:backgroundDimAmount">0.5</item>
+    </style>
+
+    <style name="LoadingDialogStyle" parent="CommonDialogStyle">
+        <item name="android:backgroundDimAmount">0.0</item>
     </style>
 
 </resources>

@@ -92,7 +92,7 @@ dependencies {
     api library.live_event_bus
     api library.xpopup
     api library.moshi
-    api library.moshi_compiler
+    kapt library.moshi_compiler
 
     implementation(library.image_coil) {
         exclude group: 'com.squareup.okhttp3', module: 'okhttp'

@@ -8,6 +8,7 @@ import com.at.common.ImageConfig
 import com.at.common.mvi.BaseMviActivity
 import com.at.common.demo.databinding.ActivityMainBinding
 import com.at.common.load
+import com.at.common.utils.LoadingUtil
 import com.at.common.utils.ToastUtils
 import com.melancholy.network.ApiFactory
 import dagger.hilt.android.AndroidEntryPoint
@@ -41,6 +42,11 @@ class MainActivity: BaseMviActivity<ActivityMainBinding, MainViewModel>() {
 
     override fun getViewModelClass(): Class<MainViewModel> {
         return MainViewModel::class.java
+    }
+
+    override fun onBackPressedSupport(): Boolean {
+        LoadingUtil.showLoading(this)
+        return true
     }
 
 }

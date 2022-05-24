@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.melancholy.widget.shape.layout.ShapeLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/sll_loading"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_10"
+    app:shapeSolidColor="#80000000"
+    app:shapeRadius="@dimen/dp_4"
+    tools:viewBindingIgnore="true">
+
+    <ProgressBar
+        android:layout_width="@dimen/dp_24"
+        android:layout_height="@dimen/dp_24"
+        android:indeterminate="true"
+        android:indeterminateBehavior="repeat"
+        android:indeterminateDrawable="@drawable/common_dialog_loading"
+        android:indeterminateDuration="1700"/>
+
+    <TextView
+        android:id="@+id/tv_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:textSize="@dimen/sp_12"
+        android:textColor="@android:color/white"
+        tools:text="断开中..."/>
+
+</com.melancholy.widget.shape.layout.ShapeLinearLayout>
