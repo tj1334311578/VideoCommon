@@ -10,6 +10,6 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class PageBean<T> (
     val list: List<T>?,
-    val count: Int,
-    val total: Int,
+    val count: Int = 0,
+    val total: Int = 0,
 )

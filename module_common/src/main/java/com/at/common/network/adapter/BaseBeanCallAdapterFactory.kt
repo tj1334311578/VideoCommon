@@ -79,6 +79,7 @@ class BaseBeanCallAdapterFactory: CallAdapter.Factory() {
                     //解析错误
                     val response: Response<T> = Response.success(ErrorCode.parseError(t) as T)
                     callback.onResponse(this@BaseBeanCallbackCall, response)
+                    t.printStackTrace()
                 }
             })
         }
