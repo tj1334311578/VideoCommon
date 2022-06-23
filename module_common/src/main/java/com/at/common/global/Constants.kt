@@ -10,6 +10,12 @@ object Constants {
     var BASE_URL: String = ""
     //是不是开发模式
     var IS_DEBUG: Boolean = false
+    //
+    var APP_ID: Int = 1
+
+    var USER_ID: Int = 1
+
+    var URL_PATH_SUFFIX: String = ""
 
     const val KEY_DATA: String = "key_data"
 

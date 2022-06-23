@@ -24,7 +24,7 @@ abstract class BaseBindingActivity<VIEW: ViewBinding>(): BaseActivity() {
     protected fun requireBinding(): VIEW = mBinding!!
 
     override fun onDestroy() {
-        super.onDestroy()
         mBinding = null
+        super.onDestroy()
     }
 }
