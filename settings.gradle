@@ -33,3 +33,4 @@ dependencyResolutionManagement {
 rootProject.name = "VideoCommon"
 include ':app'
 include ':module_common'
+include ':ijkplayer-java'

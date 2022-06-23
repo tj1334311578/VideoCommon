@@ -15,6 +15,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import tv.danmaku.ijk.media.player.IjkLog
+import tv.danmaku.ijk.media.player.IjkMediaPlayer
 
 @AndroidEntryPoint
 class MainActivity: BaseMviActivity<ActivityMainBinding, MainViewModel>() {
@@ -27,6 +29,7 @@ class MainActivity: BaseMviActivity<ActivityMainBinding, MainViewModel>() {
     }
 
     override fun loadData() {
+        val ijkMediaPlayer: IjkMediaPlayer? = null
         lifecycleScope.launch(Dispatchers.IO) {
             val drawable = load(ImageConfig("https://img0.baidu.com/it/u=2862534777,914942650&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500"))
             withContext(Dispatchers.Main) {
