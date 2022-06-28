@@ -16,6 +16,10 @@ fun String?.imageUrl(): String? {
     } else if(this == null) {
         this
     } else {
-        "${Constants.BASE_URL}$this"
+        if(this.startsWith("/")) {
+            "${Constants.BASE_URL}${this.substring(1)}"
+        } else {
+            "${Constants.BASE_URL}$this"
+        }
     }
 }

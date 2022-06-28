@@ -52,6 +52,8 @@ dependencies {
 
     implementation project(path: ':module_common')
 
+    implementation project(path: ':ijkplayer-java')
+
     //hilt
     implementation library.hilt_android
     kapt library.hilt_compiler

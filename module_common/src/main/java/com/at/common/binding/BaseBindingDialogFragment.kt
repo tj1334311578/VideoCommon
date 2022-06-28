@@ -33,7 +33,7 @@ abstract class BaseBindingDialogFragment<VIEW: ViewBinding>: BaseDialogFragment(
     protected fun requireBinding(): VIEW = mBinding!!
 
     override fun onDestroyView() {
-        super.onDestroyView()
         mBinding = null
+        super.onDestroyView()
     }
 }
