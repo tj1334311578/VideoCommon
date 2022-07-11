@@ -24,8 +24,8 @@ class MainActivity: BaseMviActivity<ActivityMainBinding, MainViewModel>() {
     override fun initialize(savedInstanceState: Bundle?) {
         requireTitleBar().addBackButton()
         getViewModel().print()
-        val viewModel = ViewModelProvider(this)[MainViewModel::class.java]
-        viewModel.print()
+        // val viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        // viewModel.print()
     }
 
     override fun loadData() {

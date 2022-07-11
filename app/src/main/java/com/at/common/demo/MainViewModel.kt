@@ -27,7 +27,7 @@ sealed class MainUiEffect: IUiEffect {
 
 
 @HiltViewModel
-class MainViewModel @Inject constructor(application: Application, private val test: TestObj):
+class MainViewModel @Inject constructor(application: Application, private val test: Test2):
     BaseAndroidViewModel<MainUiState, MainUiEvent, MainUiEffect>(application) {
 
     fun print() {
