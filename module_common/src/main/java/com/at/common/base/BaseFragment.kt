@@ -8,16 +8,19 @@ import android.view.ViewGroup
 import androidx.annotation.CallSuper
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
+import com.at.common.R
+import com.melancholy.widget.TitleBar
 
 /**
  * @Create_time: 2022/4/12 15:37
  * @Description: 最基础的Fragment当内存不足时，Activity被回收，即便Fragment实例被保存，生命周期也会走一遍
  */
 
-abstract class BaseFragment: Fragment {
+abstract class BaseFragment: Fragment, TitleBar.OnBackListener {
 
     //数据是否加载过了
     private var mIsLoad: Boolean = false
+    private var mTitleBar: TitleBar? = null
 
     constructor(): super()
 
@@ -52,8 +55,18 @@ abstract class BaseFragment: Fragment {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initTitleBar()
         initialize(view, savedInstanceState)
         observer()
+    }
+
+    protected fun requireTitleBar(): TitleBar = mTitleBar!!
+
+    protected fun getTitleBar(): TitleBar? = mTitleBar
+
+    private fun initTitleBar() {
+        mTitleBar = findViewById(R.id.title_bar)
+        mTitleBar?.setOnBackListener(this)
     }
 
     /**
@@ -111,4 +124,17 @@ abstract class BaseFragment: Fragment {
             requireView().findViewById(id)!!
         }
     }
+
+    final override fun onBack() {
+        if(!onBackClick()) {
+            if(requireActivity().onBackPressedDispatcher.hasEnabledCallbacks()) {
+                requireActivity().onBackPressedDispatcher.onBackPressed()
+            } else {
+                requireActivity().onBackPressed()
+            }
+        }
+    }
+
+    //返回true代表自己处理， false为系统处理
+    protected open fun onBackClick(): Boolean = false
 }

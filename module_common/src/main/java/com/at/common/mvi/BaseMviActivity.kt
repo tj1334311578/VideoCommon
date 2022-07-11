@@ -32,7 +32,6 @@ abstract class BaseMviActivity<VIEW: ViewBinding, VM: BaseAndroidViewModel<out I
     protected open fun getViewModelKey(): String? = null
 
     override fun observer() {
-        mViewModel.effect
-    }
 
+    }
 }

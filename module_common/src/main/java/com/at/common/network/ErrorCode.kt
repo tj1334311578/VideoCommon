@@ -3,6 +3,7 @@ package com.at.common.network
 import android.util.MalformedJsonException
 import androidx.annotation.StringRes
 import com.at.common.R
+import com.melancholy.utils.AppInstance
 import com.squareup.moshi.JsonDataException
 import com.squareup.moshi.JsonEncodingException
 import org.json.JSONException
@@ -89,7 +90,6 @@ internal object ErrorCode {
     }
 
     private fun getString(@StringRes id: Int): String {
-        return ""
-        //return AppInstance.getApplication().getString(id)
+        return AppInstance.getApplication().getString(id)
     }
 }

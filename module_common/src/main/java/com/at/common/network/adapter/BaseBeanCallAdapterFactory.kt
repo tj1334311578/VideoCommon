@@ -3,6 +3,7 @@ package com.at.common.network.adapter
 import com.at.common.network.BaseBean
 import com.at.common.network.ErrorCode
 import okhttp3.Request
+import org.json.JSONObject
 import retrofit2.*
 import java.io.IOException
 import java.lang.reflect.ParameterizedType
@@ -57,7 +58,17 @@ class BaseBeanCallAdapterFactory: CallAdapter.Factory() {
                             response.body() as BaseBean<Any>
                         } else {
                             //这里都是okHttp网络请求的错误
-                            BaseBean(response.code(), response.message())
+                            val errorJson: String? = response.errorBody()?.string()
+                            val msg: String = if(errorJson.isNullOrEmpty()) {
+                                response.message()
+                            } else {
+                                try {
+                                    JSONObject(errorJson).getString("msg")
+                                } catch (e: Exception) {
+                                    response.message()
+                                }
+                            }
+                            BaseBean(response.code(), msg)
                         }
                     }
                     val realResponse: Response<T> = Response.success(body as T)
@@ -65,10 +76,10 @@ class BaseBeanCallAdapterFactory: CallAdapter.Factory() {
                 }
 
                 override fun onFailure(call: Call<T>, t: Throwable) {
-                    t.printStackTrace()
                     //解析错误
                     val response: Response<T> = Response.success(ErrorCode.parseError(t) as T)
                     callback.onResponse(this@BaseBeanCallbackCall, response)
+                    t.printStackTrace()
                 }
             })
         }

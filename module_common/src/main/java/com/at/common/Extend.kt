@@ -70,7 +70,7 @@ private fun getCacheMode(mode: Int): CachePolicy {
  * @param config
  */
 fun ImageView.load(config: ImageConfig) {
-    this.loadAny(config.url) {
+    loadAny(config.url) {
         if(config.width != -1 && config.height != -1) {
             size(config.width, config.height)
         }
@@ -114,6 +114,7 @@ fun Context.load(config: ImageConfig, onSuccess: (result: Drawable) -> Unit,
         builder.error(config.errorId)
     }
     builder.memoryCachePolicy(getCacheMode(config.memoryCacheMode))
+        .data(config.url)
         .diskCachePolicy(getCacheMode(config.diskCacheMode))
         .target(
             onStart = { placeholder ->
@@ -150,6 +151,7 @@ suspend fun Context.load(config: ImageConfig): Drawable? {
         builder.error(config.errorId)
     }
     val request: ImageRequest = builder.memoryCachePolicy(getCacheMode(config.memoryCacheMode))
+        .data(config.url)
         .diskCachePolicy(getCacheMode(config.diskCacheMode))
         .build()
     return imageLoader.execute(request).drawable

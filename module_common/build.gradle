@@ -19,6 +19,13 @@ android {
         consumerProguardFiles "consumer-rules.pro"
     }
 
+    //配置路由
+    kapt {
+        arguments {
+            arg("ROUTER_MODULE_NAME", project.getName())
+        }
+    }
+
     buildTypes {
         debug {
             minifyEnabled false
@@ -80,11 +87,12 @@ dependencies {
     api library.lifecycle
     api library.widget
     api library.router_api
+    kapt library.router_compiler
     api library.process_monitor
     api library.live_event_bus
     api library.xpopup
     api library.moshi
-    api library.moshi_compiler
+    kapt library.moshi_compiler
 
     implementation(library.image_coil) {
         exclude group: 'com.squareup.okhttp3', module: 'okhttp'
@@ -98,6 +106,13 @@ dependencies {
     api (library.permissions) {
         exclude group: 'com.android.support', module: 'support-fragment'
     }
+
+    api 'com.github.Kennyc1012:MultiStateView:2.2.0'
+
+    api library.refresh_kernel
+    api library.refresh_classics
+
+    api library.tablayout_ext
 
     testImplementation library.java_junit
     androidTestImplementation library.android_junit

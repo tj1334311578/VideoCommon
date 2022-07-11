@@ -32,7 +32,7 @@ abstract class BaseBindingFragment<VIEW: ViewBinding>(): BaseFragment() {
     protected fun requireBinding(): VIEW = mBinding!!
 
     override fun onDestroyView() {
-        super.onDestroyView()
         mBinding = null
+        super.onDestroyView()
     }
 }

@@ -1,5 +1,6 @@
 package com.at.common.demo
 
+import com.at.common.network.BaseBean
 import okhttp3.ResponseBody
 import retrofit2.http.GET
 import retrofit2.http.Url
@@ -12,5 +13,5 @@ import retrofit2.http.Url
 interface ApiService {
 
     @GET
-    suspend fun baidu(@Url url: String): ResponseBody
+    suspend fun baidu(@Url url: String): BaseBean<Any>
 }

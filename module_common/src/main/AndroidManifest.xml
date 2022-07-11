@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.at.common">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!--解决该库不支持Android4.4以下的编译问题-->
     <uses-sdk tools:overrideLibrary="com.lxj.xpopup"/>
 
     <!--限制应用支持那些屏幕，比如手机、平板电脑或电视-->
@@ -55,7 +58,7 @@
         <!--Android9.0 default 只有状态栏可见时才可使用-->
         <!--Android9.0 shortEdges 刘海区域可以绘制-->
         <!--Android9.0 never 不使用刘海区域-->
-        <!--Android10.0 always 总是使用刘海区域-->
+        <!--Android11.0 always 总是使用刘海区域-->
 
         <!--Android9.0刘海屏适配结束-->
 

@@ -30,7 +30,7 @@ class CommonApplication: IApplicationLifecycle {
             Router.openLog()
         }
         Router.init(application)
-        val config = Config(Constants.BASE_URL, true, capacity = 32,
+        val config = Config(Constants.BASE_URL + Constants.URL_PATH_SUFFIX, true, capacity = 32,
             listOf(MoshiConverterFactory.create()),
             listOf(BaseBeanCallAdapterFactory()))
         ApiFactory.init(config)
