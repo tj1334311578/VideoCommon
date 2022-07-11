@@ -1,0 +1,136 @@
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
+
+def GROUP_ID = 'com.at.common'
+def ARTIFACT_ID = 'common'
+def VERSION_NAME = '1.0.0'
+def DESCRIPTION = '描述'
+def GIT_LOCATION = ""
+def GIT_LOCATION_URL = "../repo"
+
+//仓库地址
+def MAVEN_URL = "../repo"
+def USERNAME = "admin"
+def USER_PASSWORD = "Admin123456@"
+task sourceJar(type: Jar) {
+    if (hasAndroidPlugin()) {
+        println "-->Android"
+        from android.sourceSets.main.java.srcDirs
+        archiveClassifier = 'sources'
+    } else if (hasJavaPlugin()) {
+        println "--->Java"
+        from sourceSets.main.allSource
+        archiveClassifier = 'sources'
+    }
+}
+
+afterEvaluate { project ->
+    tasks.all { Task task ->
+        if (task.name.equalsIgnoreCase('publishAarPomPublishPublicationToSnapshotsRepository')) {
+            task.dependsOn tasks.getByName('assemble')
+        }
+    }
+}
+
+def hasJavaPlugin() {
+    if (plugins.hasPlugin("java-library")) {
+        return true
+    }
+    return false
+}
+
+def hasAndroidPlugin() {
+    if (plugins.hasPlugin("com.android.library")) {
+        return true
+    }
+    return false
+}
+
+publishing {
+    println "-->${project.name}"
+    println "==>the aar path is " + "$buildDir/outputs/aar/${project.name}-release.aar"
+    println "==>" + MAVEN_URL
+    println "==>" + VERSION_NAME
+    publications {
+        aarPomPublish(MavenPublication) {
+            groupId GROUP_ID
+            artifactId ARTIFACT_ID
+            version VERSION_NAME
+            artifact(sourceJar)
+            artifact("$buildDir/outputs/aar/${project.name}-release.aar")
+            pom {
+                packaging 'aar'
+                name = ARTIFACT_ID
+                description = DESCRIPTION
+                url = GIT_LOCATION_URL
+                // licenses {
+                //     license {
+                //         name = 'The Apache License, Version 2.0'
+                //         url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                //     }
+                // }
+
+                // developers {
+                //     developer {
+                //         id = ''
+                //         name = ''
+                //         email = ''
+                //     }
+                // }
+                //
+                // scm {
+                //     connection = 'scm:git:' + GIT_LOCATION + '.git'
+                //     developerConnection = 'scm:git:ssh://' + GIT_LOCATION + '.git'
+                //     url = GIT_LOCATION_URL
+                // }
+            }
+
+            pom.withXml {
+                // asNode().appendNode('测试').appendNode('自定义key','自定义value')
+                def dependenciesNode = asNode().appendNode('dependencies')
+                configurations.implementation.allDependencies.each {
+                    if (it.version != "unspecified") {//过滤项目内library引用
+                        println "===>" + it.properties
+                        println "===>" + it.group + " " + it.name + " " + it.version
+                        if (it.group == null || it.name == null || it.version == null) {
+                            return
+                        }
+                        if (it.group == group) return
+                        def dependencyNode = dependenciesNode.appendNode('dependency')
+                        dependencyNode.appendNode('groupId', it.group)
+                        dependencyNode.appendNode('artifactId', it.name)
+                        dependencyNode.appendNode('version', it.version)
+
+                        if (it.excludeRules.size() > 0) {
+                            def exclusionsNode = dependencyNode.appendNode('exclusions')
+                            it.excludeRules.each { rule ->
+                                def exclusionNode = exclusionsNode.appendNode('exclusion')
+                                exclusionNode.appendNode('groupId', rule.group)
+                                exclusionNode.appendNode('artifactId', rule.module)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven{
+            name "snapshots"
+            url MAVEN_URL
+            // credentials{
+            //     username=USERNAME
+            //     password=USER_PASSWORD
+            // }
+        }
+    }
+}
+//signing 必须在publishing配置后
+// signing{
+//     sign publishing.publications.aarPomPublish
+// }
+
+
+
+
