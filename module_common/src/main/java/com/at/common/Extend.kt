@@ -2,14 +2,23 @@ package com.at.common
 
 import android.content.Context
 import android.graphics.drawable.Drawable
+import android.os.Build
 import android.widget.ImageView
 import androidx.annotation.DrawableRes
 import androidx.annotation.IntDef
 import androidx.annotation.IntRange
+import coil.ImageLoader
+import coil.decode.GifDecoder
+import coil.decode.ImageDecoderDecoder
 import coil.imageLoader
+import coil.load
 import coil.loadAny
 import coil.request.CachePolicy
 import coil.request.ImageRequest
+import coil.size.Scale
+import coil.transform.RoundedCornersTransformation
+import com.melancholy.network.ApiFactory
+import java.io.File
 
 /**
  * @Create_time: 2022/4/19 15:16
@@ -49,8 +58,12 @@ data class ImageConfig(
     //内存缓存模式
     @ImageCacheMode val memoryCacheMode: Int = CACHE_ENABLED,
     //磁盘缓存模式
-    @ImageCacheMode val diskCacheMode: Int = CACHE_ENABLED
+    @ImageCacheMode val diskCacheMode: Int = CACHE_ENABLED,
+    //添加圆角
+    val radius:Int = 0
 )
+
+
 
 /**
  * 获取缓存模式
@@ -65,12 +78,45 @@ private fun getCacheMode(mode: Int): CachePolicy {
     }
 }
 
+
+fun httpsImageLoader(context:Context) = ImageLoader.Builder(context).okHttpClient(ApiFactory.getInstance().getOkHttpClient()).build()
+
+fun getImageLoader(context:Context,config: ImageConfig):ImageLoader{
+    var imageLoader = httpsImageLoader(context)
+    var isGif = if(config.url is String){ (config.url?:"").toString().indexOf("gif") !=-1 } else false
+    if(config.url is File){
+        val filePath = config.url.absolutePath
+        if(filePath.indexOf("gif")!=-1){
+            isGif = true
+        }
+    }
+    if(isGif) {
+        imageLoader = ImageLoader.Builder(context).okHttpClient(ApiFactory.getInstance().getOkHttpClient()).components {
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.P){
+                add(ImageDecoderDecoder.Factory())
+            }else{
+                add(GifDecoder.Factory())
+            }
+        }.build()
+    }
+    return imageLoader
+}
+
 /**
  * 加载图片
  * @param config
  */
 fun ImageView.load(config: ImageConfig) {
-    loadAny(config.url) {
+    var isGif = if(config.url is String){ (config.url?:"").toString().indexOf("gif") !=-1 } else false
+    if(config.url is File){
+        val filePath = config.url.absolutePath
+        if(filePath.indexOf("gif")!=-1){
+            isGif = true
+        }
+    }
+    var imageLoader = getImageLoader(context,config)
+
+    load(config.url,imageLoader) {
         if(config.width != -1 && config.height != -1) {
             size(config.width, config.height)
         }
@@ -86,10 +132,15 @@ fun ImageView.load(config: ImageConfig) {
         if (config.errorId != 0) {
             error(config.errorId)
         }
+//        if(config.radius!=0){
+//            transformations(RoundedCornersTransformation(config.radius.toFloat()))
+//            scale(Scale.FILL)
+//        }
         memoryCachePolicy(getCacheMode(config.memoryCacheMode))
         diskCachePolicy(getCacheMode(config.diskCacheMode))
     }
 }
+
 
 /**
  * 通过回调加载图片
@@ -154,6 +205,6 @@ suspend fun Context.load(config: ImageConfig): Drawable? {
         .data(config.url)
         .diskCachePolicy(getCacheMode(config.diskCacheMode))
         .build()
-    return imageLoader.execute(request).drawable
+    return getImageLoader(this,config).execute(request).drawable
 }
 

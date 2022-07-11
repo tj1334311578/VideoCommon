@@ -4,8 +4,11 @@ buildscript {
     apply from: "config.gradle"
 
     dependencies {
+        //router
+        classpath rootProject.ext.dependencies.router_plugin
         //hilt
         classpath rootProject.ext.dependencies.hilt_plugin
+        classpath 'com.melancholy.router.plugin:plugin:1.0.0'
     }
 }
 

@@ -16,6 +16,7 @@ class CommonInterceptor: INetworkInterceptor {
     override fun priority(): Int = 0
 
     override fun intercept(chain: Chain): Response {
-        return chain.proceed(chain.request())
+        val request = chain.request()
+        return chain.proceed(request)
     }
 }

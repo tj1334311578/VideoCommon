@@ -97,7 +97,7 @@ dependencies {
     implementation(library.image_coil) {
         exclude group: 'com.squareup.okhttp3', module: 'okhttp'
     }
-
+    implementation("io.coil-kt:coil-gif:2.1.0")
     //Toast框架
     implementation library.toast_utils
 
@@ -113,7 +113,6 @@ dependencies {
     api library.refresh_classics
 
     api library.tablayout_ext
-
     testImplementation library.java_junit
     androidTestImplementation library.android_junit
     androidTestImplementation library.espresso_core

@@ -2,7 +2,7 @@ ext{
 
     android = [
             compileSdk: 32,
-            minSdk: 16,
+            minSdk: 21,
             targetSdk: 32,
             versionCode: 1,
             versionName: '1.0.0',
@@ -40,14 +40,17 @@ ext{
     //artifactId
     pom_artifactId = "common"
     //版本号
-    pom_version = "1.3.8"
+    pom_version = "1.8.0"
     //groupId
     pom_ijk_groupId = "tv.danmaku.ijk.media.player"
     //artifactId
     pom_ijk_artifactId = "player"
     //版本号
-    pom_ijk_version = "1.0.0"
+    pom_ijk_version = "1.0.1"
 
+    pom_tabext_groupId = "com.loper7.tab_expand"
+    pom_tabext_artifactId = "tabext"
+    pom_tabext_version  = "1.0.1"
     dependencies=[
             // gradle插件
             gradle_plugin: "com.android.tools.build:gradle:7.0.4",
@@ -74,11 +77,11 @@ ext{
             //工具类
             utils: "com.melancholy.utils:utils:1.0.9",
             //通用控件
-            widget: "com.melancholy.widget:widget:1.2.4",
+            widget: "com.melancholy.widget:widget:1.2.8",
             //基础类库
             basics: "com.melancholy.basics:basics:1.1.2",
             //网络库
-            network: "com.melancholy.network:network:3.0.1",
+            network: "com.melancholy.network:network:3.0.5",
             //路由
             router_api: "com.melancholy.router.api:api:1.0.1",
             //路由注解处理器
@@ -93,7 +96,7 @@ ext{
             //前后台进程监听
             process_monitor: "com.melancholy.process.monitor:monitor:1.0.0",
             //图片加载框架
-            image_coil: "io.coil-kt:coil:1.4.0",
+            image_coil: "io.coil-kt:coil:2.1.0",
             //代替 SharedPreferences
             mmkv: "com.tencent:mmkv:1.2.13",
 
@@ -134,12 +137,12 @@ ext{
             refresh_classics: "io.github.scwang90:refresh-header-classics:2.0.5",
 
             //tablayout扩展
-            tablayout_ext: "com.github.loperSeven:tablayout-ext:0.1.3",
+            tablayout_ext: "com.loper7.tab_expand:tabext:1.0.1",
 
             //java测试包
             java_junit: "junit:junit:4.13.2",
             //android测试包
-            android_junit: "androidx.test.ext:junit:1.1.3",
+            android_junit: "androidx.test.ext:junit:1.1.4",
             espresso_core: "androidx.test.espresso:espresso-core:3.4.0",
     ]
 }

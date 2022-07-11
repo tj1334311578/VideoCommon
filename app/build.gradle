@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
 }
+apply plugin: 'router-register'
 
 def config = rootProject.ext.android
 def library = rootProject.ext.dependencies
@@ -22,6 +23,12 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    //配置路由
+    kapt {
+        arguments {
+            arg("ROUTER_MODULE_NAME", project.getName())
+        }
+    }
     buildTypes {
         debug {
             minifyEnabled false
@@ -57,7 +64,10 @@ dependencies {
     //hilt
     implementation library.hilt_android
     kapt library.hilt_compiler
-
+    implementation("io.coil-kt:coil:2.1.0")
+    implementation("io.coil-kt:coil-gif:2.1.0")
+    kapt library.hilt_compiler
+    kapt library.router_compiler
     testImplementation library.java_junit
     androidTestImplementation library.android_junit
     androidTestImplementation library.espresso_core

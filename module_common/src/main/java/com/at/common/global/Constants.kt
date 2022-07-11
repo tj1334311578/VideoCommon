@@ -8,6 +8,11 @@ package com.at.common.global
 object Constants {
     //网络请求URL
     var BASE_URL: String = ""
+
+    var BASE_URLS:String = ""
+
+    //客服地址
+    var SERVICE_URL:String = ""
     //是不是开发模式
     var IS_DEBUG: Boolean = false
     //
@@ -24,6 +29,8 @@ object Constants {
     const val KEY_DATA_2: String = "key_data_2"
 
     const val KEY_DATA_3: String = "key_data_3"
+
+    const val KEY_DATA_4: String = "key_data_4"
 
     const val REQUEST_CODE_ONE: Int = 1
 
