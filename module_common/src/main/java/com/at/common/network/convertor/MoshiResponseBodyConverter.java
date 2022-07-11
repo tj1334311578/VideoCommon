@@ -37,10 +37,12 @@ final class MoshiResponseBodyConverter<T> implements Converter<ResponseBody, T> 
             JsonReader reader = JsonReader.of(source);
             T result = adapter.fromJson(reader);
             if (reader.peek() != JsonReader.Token.END_DOCUMENT) {
-                throw new JsonDataException("JSON document was not fully consumed.");
+//                throw new JsonDataException("JSON document was not fully consumed.");
             }
             return result;
-        } finally {
+        }catch (Exception e){
+            return null;
+        }finally {
             value.close();
         }
     }

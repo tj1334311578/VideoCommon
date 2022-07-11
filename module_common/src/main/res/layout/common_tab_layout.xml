@@ -8,5 +8,10 @@
     android:background="@android:color/transparent"
     app:tabRippleColor="@null"
     app:tabIndicatorFullWidth="false"
+    app:tabSelectedTextColor="@color/color_FF000000"
+    app:tabTextColor="@color/color_FF48494D"
+    app:tabMinWidth="@dimen/dp_60"
+    app:tabPaddingStart="@dimen/dp_8"
+    app:tabPaddingEnd="@dimen/dp_8"
     app:tabMode="auto"
     app:tabGravity="center"/>

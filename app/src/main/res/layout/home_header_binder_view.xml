@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_23"
+    tools:viewBindingIgnore="true">
+
+    <com.melancholy.widget.SupportTextView
+        android:id="@+id/stv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:textSize="@dimen/sp_16"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:textColor="@android:color/black"
+        android:text="最近更新"/>
+
+    <TextView
+        android:id="@+id/tv_more"
+        android:layout_width="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|center_vertical"
+        android:drawablePadding="@dimen/dp_2"
+        android:textSize="@dimen/sp_12"
+        android:textColor="#FFB4B8BF"
+        android:layout_marginRight="@dimen/dp_20"
+        android:text="更多"/>
+
+</FrameLayout>

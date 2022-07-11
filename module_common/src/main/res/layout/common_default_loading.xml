@@ -5,12 +5,13 @@
     android:layout_height="match_parent">
 
     <ProgressBar
-        android:layout_width="@dimen/dp_120"
-        android:layout_height="@dimen/dp_120"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
         android:indeterminate="true"
         android:indeterminateBehavior="repeat"
         android:indeterminateDrawable="@drawable/common_default_loading"
         android:indeterminateDuration="1700"
+
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/dp_36"/>
 
@@ -18,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/dp_164"
+        android:layout_marginTop="@dimen/dp_80"
         android:textSize="@dimen/sp_14"
         android:textColor="@color/color_FF48494D"
         android:text="正在加载，请稍等"/>
