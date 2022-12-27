@@ -28,12 +28,14 @@ ext{
     kotlin_version="1.6.20"
 
     //仓库
-    warehouse = "http://140.82.23.227:8082/artifactory/android-library/"
+    // warehouse = "http://140.82.23.227:8082/artifactory/android-library/"
+    warehouse = "http://123.60.165.255:8082/artifactory/android-library/"
 
     //仓库用户名
     warehouse_library_userName = "admin"
     //仓库密码
-    warehouse_library_password = "Admin123456@"
+    // warehouse_library_password = "Admin123456@"
+    warehouse_library_password = "Tang@1314"
 
     //groupId
     pom_groupId = "com.at.common"
@@ -41,6 +43,7 @@ ext{
     pom_artifactId = "common"
     //版本号
     pom_version = "1.8.0"
+
     //groupId
     pom_ijk_groupId = "tv.danmaku.ijk.media.player"
     //artifactId
@@ -142,7 +145,7 @@ ext{
             //java测试包
             java_junit: "junit:junit:4.13.2",
             //android测试包
-            android_junit: "androidx.test.ext:junit:1.1.4",
+            android_junit: "androidx.test.ext:junit:1.1.2",
             espresso_core: "androidx.test.espresso:espresso-core:3.4.0",
     ]
 }

@@ -5,10 +5,11 @@ pluginManagement {
             //内网私有代理仓库
             //url "http://192.168.2.204:8082/artifactory/android-local_repository/"
             //国外私有代理仓库
-            url "http://140.82.23.227:8082/artifactory/android-warehouse/"
+            url "http://123.60.165.255:8082/artifactory/android-warehouse/"
+            // url "http://140.82.23.227:8082/artifactory/core-common/"
             credentials {
                 username "admin"
-                password "Admin123456@"
+                password "Tang@1314"
             }
         }
         gradlePluginPortal()
@@ -22,10 +23,11 @@ dependencyResolutionManagement {
             //内网私有代理仓库
             //url "http://192.168.2.204:8082/artifactory/android-local_repository/"
             //国外私有代理仓库
-            url "http://140.82.23.227:8082/artifactory/android-warehouse/"
+            url "http://123.60.165.255:8082/artifactory/android-warehouse/"
+            // url "http://140.82.23.227:8082/artifactory/core-common/"
             credentials {
                 username "admin"
-                password "Admin123456@"
+                password "Tang@1314"
             }
         }
     }

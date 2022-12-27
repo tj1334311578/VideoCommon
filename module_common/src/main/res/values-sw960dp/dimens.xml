@@ -821,6 +821,10 @@
     	
     <dimen name="sp_25">64.0000sp</dimen>
     	
+    <dimen name="sp_26">66.5600sp</dimen>
+    	
+    <dimen name="sp_27">69.1200sp</dimen>
+    	
     <dimen name="sp_28">71.6800sp</dimen>
     	
     <dimen name="sp_30">76.8000sp</dimen>
